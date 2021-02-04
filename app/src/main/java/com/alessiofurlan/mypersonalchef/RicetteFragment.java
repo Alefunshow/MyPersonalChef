@@ -59,7 +59,6 @@ public class RicetteFragment extends Fragment {
     private RecyclerView recyclerView;
     private ViewPager evidenzaView;
     private RicetteAdapter ricetteAdapter;
-    private ArrayList<CardRicetta> listaRicette;
     private RequestQueue requestQueue;
     EvidenzaAdapter adapter;
     ImageView immagineEvidenza;
@@ -113,8 +112,6 @@ public class RicetteFragment extends Fragment {
         evidenzaView.setPadding(20, 0, 150, 0);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        listaRicette = new ArrayList<>();
-        requestQueue = Volley.newRequestQueue(view.getContext());
         getEvidenza();
         parseJSON();
         return view;
@@ -161,6 +158,7 @@ public class RicetteFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
 
                     List<Meals.Meal> meals = response.body().getMeals();
+
                     evidenzaView.setAdapter(new EvidenzaAdapter(meals,getContext()));
 
                 }

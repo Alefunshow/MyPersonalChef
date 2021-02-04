@@ -1,16 +1,12 @@
 package com.alessiofurlan.mypersonalchef;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,17 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alessiofurlan.mypersonalchef.model.Meals;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-
-public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteViewHolder> {
+public class CercaAdapter extends RecyclerView.Adapter<CercaAdapter.CercaViewHolder> {
     private Context context;
     private List<Meals.Meal> meals;
-    public RicetteAdapter(Context context,List<Meals.Meal> meals){
+    public CercaAdapter(Context context,List<Meals.Meal> meals){
         this.context = context;
         this.meals = meals;
 
@@ -36,14 +27,14 @@ public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteV
 
     @NonNull
     @Override
-    public RicetteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_ricerca,parent,false);
+    public CercaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.item_ricetta,parent,false);
 
-        return new RicetteViewHolder(v);
+        return new CercaViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RicetteViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CercaViewHolder holder, int position) {
         String urlImmagine = meals.get(position).getStrMealThumb();
         String nomePiatto = meals.get(position).getStrMeal();
         String categoriaPiatto = meals.get(position).getStrCategory();
@@ -56,6 +47,7 @@ public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteV
                 Intent i = new Intent(v.getContext(),Dettagli.class);
                 i.putExtra("nomePiatto",nomePiatto);
                 context.startActivity(i);
+                //Toast.makeText(context,nomePiatto+"   "+String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -65,15 +57,15 @@ public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteV
         return meals.size();
     }
 
-    public class RicetteViewHolder extends RecyclerView.ViewHolder{
+    public class CercaViewHolder extends RecyclerView.ViewHolder{
         public ImageView immaginePiatto;
         public TextView nomePiatto;
         public TextView categoriaPiatto;
-        public RicetteViewHolder(@NonNull View itemView) {
+        public CercaViewHolder(@NonNull View itemView) {
             super(itemView);
-            immaginePiatto = itemView.findViewById(R.id.imgPiatto);
-            nomePiatto = itemView.findViewById(R.id.txtNome);
-            categoriaPiatto = itemView.findViewById(R.id.txtCategoria);
+            immaginePiatto = itemView.findViewById(R.id.immaginePiatto);
+            nomePiatto = itemView.findViewById(R.id.nomeRicetta);
+            categoriaPiatto = itemView.findViewById(R.id.categoriaPiatto);
         }
 
 

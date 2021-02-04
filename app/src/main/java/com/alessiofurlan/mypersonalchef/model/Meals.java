@@ -6,9 +6,14 @@
  -----------------------------------------------------------------------------*/
 package com.alessiofurlan.mypersonalchef.model;
 
+import android.util.Log;
+
+import com.alessiofurlan.mypersonalchef.Ingredienti;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class Meals {
@@ -178,6 +183,7 @@ public class Meals {
         @SerializedName("dateModified")
         @Expose
         private Object dateModified;
+
 
         public String getIdMeal() {
             return idMeal;

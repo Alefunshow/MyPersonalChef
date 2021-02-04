@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfiloFragment">
+    tools:context=".ProfiloFragment"
+    android:background="@drawable/sfondo"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/fotoProfilo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="92dp"
+        android:layout_centerHorizontal="true"
+        tools:src="@tools:sample/avatars" />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:layout_below="@+id/fotoProfilo"
+    android:layout_marginTop="70dp"
+    android:background="@color/colorPrimaryLight"
+    >
 
     <TextView
         android:id="@+id/emailProfilo"
@@ -14,34 +30,18 @@
         android:layout_height="wrap_content"
         android:text="PROFILO EMAIL"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@id/nomeProfilo"
+/>
 
     <TextView
         android:id="@+id/nomeProfilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NOME PROFILO"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        android:textSize="24sp" />
+</RelativeLayout>
 
-    <ImageView
-        android:id="@+id/fotoProfilo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="92dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dettagli">
+
+    <ImageView
+        android:id="@+id/immaginePiatto1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#80FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_below="@+id/immaginePiatto1"
+    android:background="@color/colorPrimary"
+    android:id="@+id/infoTab">
+    <TextView
+        android:id="@+id/nomePiatto"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
+        android:layout_height="wrap_content"
+        android:text="Pasta al pesto di te"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:singleLine="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:fontFamily="casual"
+        />
+    <TextView
+        android:layout_below="@id/txtPTitle"
+        android:id="@+id/txtProcedimento"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TextView
+        android:id="@+id/txtPTitle"
+        android:layout_below="@id/nomePiatto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:text="Procedimento"
+        android:textSize="17dp"
+        android:textColor="@color/colorPrimaryLight"/>
+
+</RelativeLayout>
+  <androidx.viewpager.widget.ViewPager
+        android:id="@+id/ingredienteViewPager"
+        android:foregroundGravity="center"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+      android:layout_below="@id/infoTab"/>
+
+
+
+</RelativeLayout>

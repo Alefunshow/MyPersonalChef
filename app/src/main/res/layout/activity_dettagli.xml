@@ -18,12 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#80FFFFFF"
+        app:titleTextColor="@color/black"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="" />
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="100dp"
     android:layout_below="@+id/immaginePiatto1"
     android:background="@color/colorPrimary"
     android:id="@+id/infoTab">
@@ -44,12 +45,7 @@
         android:typeface="normal"
         android:fontFamily="casual"
         />
-    <TextView
-        android:layout_below="@id/txtPTitle"
-        android:id="@+id/txtProcedimento"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+
 
     <TextView
         android:id="@+id/txtPTitle"
@@ -61,13 +57,39 @@
         android:textSize="17dp"
         android:textColor="@color/colorPrimaryLight"/>
 
+
 </RelativeLayout>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/infoTab"
+    app:cardCornerRadius="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:id="@+id/txtProcedimento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textSize="16dp" />
+    </ScrollView>
+
+
+</androidx.cardview.widget.CardView>
+
   <androidx.viewpager.widget.ViewPager
         android:id="@+id/ingredienteViewPager"
         android:foregroundGravity="center"
         android:overScrollMode="never"
         android:clipToPadding="false"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="150dp"
       android:layout_below="@id/infoTab"/>

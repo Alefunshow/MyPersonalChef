@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.alessiofurlan.mypersonalchef.model.Meals;
 
@@ -82,28 +83,54 @@ public class CercaFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerRicerca);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        SearchView searchView = (SearchView) view.findViewById(R.id.searchView);
-        Ricerca("");
+        SearchView searchView = view.findViewById(R.id.searchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                try{
+                    Ricerca(query);
+                }catch (Exception e){
+                    Toast.makeText(getContext(),"aa",Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                try{
+                    Ricerca(newText);
+                }catch (Exception e){
+                Toast.makeText(getContext(),"aa",Toast.LENGTH_SHORT).show();
+            }
+                return false;
+            }
+        });
        return view;
     }
 
     public void Ricerca(String nomePiatto){
-        Call<Meals> mealsCall = Utils.getApi().getMealByName(nomePiatto);
-        mealsCall.enqueue(new Callback<Meals>() {
-            @Override
-            public void onResponse(@NonNull Call<Meals> call, @NonNull Response<Meals> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<Meals.Meal> meals = response.body().getMeals();
-                    recyclerView.setAdapter(new CercaAdapter(getContext(),meals));
-                }
-                else {
-                    Log.w("ERRORE", "errore nella risposta");
-                }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<Meals> call, @NonNull Throwable t) {
-            }
-        });
+            Call<Meals> mealsCall = Utils.getApi().getMealByName(nomePiatto);
+
+            mealsCall.enqueue(new Callback<Meals>() {
+                @Override
+                public void onResponse(@NonNull Call<Meals> call, @NonNull Response<Meals> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        List<Meals.Meal> meals = response.body().getMeals();
+                        recyclerView.setAdapter(new CercaAdapter(getContext(),meals));
+                    }
+                    else {
+                        Log.w("ERRORE", "errore nella risposta");
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<Meals> call, @NonNull Throwable t) {
+                    Toast.makeText(getContext(),"aa",Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
     }
 }

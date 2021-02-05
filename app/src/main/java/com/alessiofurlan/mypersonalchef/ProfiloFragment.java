@@ -1,5 +1,6 @@
 package com.alessiofurlan.mypersonalchef;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -7,12 +8,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,6 +46,7 @@ public class ProfiloFragment extends Fragment {
     TextView nomeUtente;
     TextView emailUtente;
     ImageView fotoProfilo;
+    Button logout;
 
     public ProfiloFragment() {
         // Required empty public constructor
@@ -83,12 +88,23 @@ public class ProfiloFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_profilo, container, false);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+        logout = v.findViewById(R.id.btnLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(getContext(), Login.class);
+                startActivity(i);
+                Toast.makeText(getContext(),"Logout eseguito correttamente!",Toast.LENGTH_SHORT).show();
+            }
+        });
         nomeUtente = v.findViewById(R.id.nomeProfilo);
         emailUtente = v.findViewById(R.id.emailProfilo);
         fotoProfilo = v.findViewById(R.id.fotoProfilo);
-        nomeUtente.setText(user.getEmail());
-        emailUtente.setText(user.getDisplayName());
+        nomeUtente.setText(user.getDisplayName());
+        emailUtente.setText(user.getEmail());
         Picasso.get().load(user.getPhotoUrl().toString()).into(fotoProfilo);
+
         return v;
     }
 

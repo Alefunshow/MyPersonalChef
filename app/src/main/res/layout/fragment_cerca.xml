@@ -8,13 +8,33 @@
     <View
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="185dp"
-        android:background="@color/colorPrimary" />
-
-    <SearchView
-        android:id="@+id/searchView"
+        android:layout_height="160dp"
+        android:background="@drawable/searchtablayout"/>
+    <TextView
+        android:id="@+id/title"
+        android:textColor="@color/colorWhite"
+        android:text="Cerca un piatto"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="wrap_content" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        app:cardCornerRadius="20dp">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:queryHint="Cerca un Piatto ..."
+            android:iconifiedByDefault="false" />
+    </androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
         android:layout_width="match_parent"

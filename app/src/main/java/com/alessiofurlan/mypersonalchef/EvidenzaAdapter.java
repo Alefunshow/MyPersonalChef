@@ -7,6 +7,7 @@
 package com.alessiofurlan.mypersonalchef;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,9 @@ public class EvidenzaAdapter extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,strMealName+"  "+String.valueOf(position),Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(v.getContext(),Dettagli.class);
+                i.putExtra("nomePiatto",strMealName);
+                context.startActivity(i);
             }
         });
 

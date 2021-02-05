@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,7 @@ public class CercaAdapter extends RecyclerView.Adapter<CercaAdapter.CercaViewHol
     @NonNull
     @Override
     public CercaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_ricetta,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_ricerca,parent,false);
 
         return new CercaViewHolder(v);
     }
@@ -63,9 +64,9 @@ public class CercaAdapter extends RecyclerView.Adapter<CercaAdapter.CercaViewHol
         public TextView categoriaPiatto;
         public CercaViewHolder(@NonNull View itemView) {
             super(itemView);
-            immaginePiatto = itemView.findViewById(R.id.immaginePiatto);
-            nomePiatto = itemView.findViewById(R.id.nomeRicetta);
-            categoriaPiatto = itemView.findViewById(R.id.categoriaPiatto);
+            immaginePiatto = itemView.findViewById(R.id.imgPiatto);
+            nomePiatto = itemView.findViewById(R.id.txtNome);
+            categoriaPiatto = itemView.findViewById(R.id.txtCategoria);
         }
 
 

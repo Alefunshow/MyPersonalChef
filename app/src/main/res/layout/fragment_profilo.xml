@@ -5,41 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfiloFragment"
-    android:background="@drawable/sfondo"
     >
 
-    <ImageView
-        android:id="@+id/fotoProfilo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="92dp"
-        android:layout_centerHorizontal="true"
-        tools:src="@tools:sample/avatars" />
+
+
 
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="500dp"
-    android:layout_below="@+id/fotoProfilo"
-    android:layout_marginTop="70dp"
-    android:background="@color/colorPrimaryLight"
+    android:layout_below="@+id/fotoProfiloHolder"
+    android:layout_marginTop="50dp"
+    android:background="@color/colorPrimary"
     >
 
     <TextView
         android:id="@+id/emailProfilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/labelEmail"
+        android:layout_centerHorizontal="true"
         android:text="PROFILO EMAIL"
-        android:textSize="14sp"
-        android:layout_below="@id/nomeProfilo"
-/>
+        android:textColor="@color/colorWhiteDark"
+
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/nomeProfilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/labelNomeProfilo"
+        android:layout_centerHorizontal="true"
         android:text="NOME PROFILO"
-        android:textSize="24sp" />
+        android:textColor="@color/colorWhiteDark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nomeProfilo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="EMAIL"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/labelNomeProfilo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="NOME PROFILO"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailProfilo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#BF002D"
+        android:text="LogOut"
+        android:textColor="@color/colorWhite" />
+
 </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:background="@drawable/topbarshadow"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:background="@drawable/topbarprofilo"/>
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/imageshadow"
+        android:layout_marginTop="96dp"
+        android:layout_centerHorizontal="true"
+
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fotoProfiloHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="500dp">
+
+        <ImageView
+            android:id="@+id/fotoProfilo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            tools:src="@tools:sample/avatars" />
+
+
+    </androidx.cardview.widget.CardView>
 
 
 

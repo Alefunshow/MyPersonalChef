@@ -7,9 +7,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class Dettagli extends AppCompatActivity {
     ImageView immaginePiatto;
     TextView nomePiatto, txtProcedimento;
     List<Ingredienti.Ingrediente> ingredienti;
+    ScrollView scrollView;
     private ViewPager ingredientiView;
 
     @Override
@@ -37,10 +40,12 @@ public class Dettagli extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli);
         ingredientiView = findViewById(R.id.ingredienteViewPager);
+        scrollView = findViewById(R.id.scrollView);
         ingredientiView.setPadding(20, 0, 150, 0);
         immaginePiatto = findViewById(R.id.immaginePiatto1);
         nomePiatto = findViewById(R.id.nomePiatto);
         txtProcedimento = findViewById(R.id.txtProcedimento);
+        txtProcedimento.setMovementMethod(new ScrollingMovementMethod());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_back); // Set the icon

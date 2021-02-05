@@ -37,7 +37,7 @@ public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteV
     @NonNull
     @Override
     public RicetteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_ricerca,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_ricetta,parent,false);
 
         return new RicetteViewHolder(v);
     }
@@ -71,9 +71,9 @@ public class RicetteAdapter extends RecyclerView.Adapter<RicetteAdapter.RicetteV
         public TextView categoriaPiatto;
         public RicetteViewHolder(@NonNull View itemView) {
             super(itemView);
-            immaginePiatto = itemView.findViewById(R.id.imgPiatto);
-            nomePiatto = itemView.findViewById(R.id.txtNome);
-            categoriaPiatto = itemView.findViewById(R.id.txtCategoria);
+            immaginePiatto = itemView.findViewById(R.id.immaginePiatto);
+            nomePiatto = itemView.findViewById(R.id.nomeRicetta);
+            categoriaPiatto = itemView.findViewById(R.id.categoriaPiatto);
         }
 
 
